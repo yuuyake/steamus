@@ -10,7 +10,7 @@ async fn check(c: &reqwest::Client, name: &str) -> Option<bool> {
             }
             Ok(r) => {
                 let t = r.text().await.ok()?;
-                return Some(t.contains("The specified profile could not be found"));
+                return Some(t.contains("user could not be found"));
             }
             Err(_) => tokio::time::sleep(Duration::from_secs(2)).await,
         }
